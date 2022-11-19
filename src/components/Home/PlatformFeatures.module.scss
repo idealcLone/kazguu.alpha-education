@@ -1,0 +1,55 @@
+.heading {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  margin-bottom: 72px;
+  @apply text-gray-800;
+}
+
+.card {
+  border-radius: 20px;
+  @apply relative;
+  @apply bg-gray-50;
+  @apply px-6;
+  @apply py-8;
+  @apply pt-14;
+  @apply text-center;
+  cursor: pointer;
+
+  &:hover {
+    h4, p {
+      @apply text-white;
+    }
+  }
+
+  &--1:hover {
+    background: #425FF866;
+  }
+
+  &--2:hover {
+    background: #52D7A6B2;
+  }
+
+  &--3:hover {
+    background: #B498F499;
+  }
+
+  &--4:hover {
+    background: #B498F499;
+  }
+
+  &--5:hover {
+    background: #FBA56499;
+  }
+
+  &--6:hover {
+    background: #425FF866;
+  }
+}
+
+.icon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  translate: -50% -50%;
+}

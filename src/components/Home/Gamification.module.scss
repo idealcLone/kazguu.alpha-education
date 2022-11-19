@@ -1,0 +1,56 @@
+.heading {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  @apply text-gray-800;
+  margin-bottom: 48px;
+}
+
+.lgCard,
+.card {
+  border-radius: 40px;
+
+  h4 {
+    @apply text-3xl;
+    @apply leading-9;
+    @apply font-semibold;
+    @apply text-gray-900;
+    margin-bottom: 16px;
+  }
+
+  p {
+    @apply text-lg;
+    @apply leading-7;
+    @apply font-normal;
+    @apply text-gray-500;
+  }
+}
+
+.card {
+  padding: 40px 40px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #F3F4F6;
+
+  img {
+    height: 64px;
+    width: 64px;
+    margin-bottom: 32px;
+  }
+}
+
+.lgCard {
+  position: relative;
+  flex: 1;
+  background-color: #B498F433;
+  padding: 40px;
+  align-self: stretch;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}

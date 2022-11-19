@@ -1,0 +1,31 @@
+.track,
+.trackSecond {
+  position: absolute;
+  top: 0;
+}
+
+.track {
+  left: 0;
+  animation: trackAnimation infinite 10s linear;
+}
+
+.trackSecond {
+  left: -1314px;
+  animation: secondTrackAnimation infinite 10s linear;
+}
+
+@keyframes trackAnimation {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 1314px;
+  }
+}
+
+@keyframes secondTrackAnimation {
+  100% {
+    left: 0;
+  }
+}

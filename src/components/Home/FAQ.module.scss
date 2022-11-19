@@ -1,0 +1,23 @@
+.left {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  @apply text-gray-800;
+}
+
+.right {
+  flex: 1;
+}
+
+.questions {
+  li:not(:last-child) {
+    border-bottom: 1px solid #E5E7EB;
+  }
+}

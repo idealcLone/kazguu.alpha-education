@@ -1,0 +1,34 @@
+.container {
+  padding: 64px 100px;
+  background-color: var(--c-blue);
+  color: #fff;
+}
+
+.heading {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  margin-bottom: 64px;
+}
+
+.listItem {
+  flex: 1;
+  padding-bottom: 16px;
+  border-bottom: 1.5px solid #F9FAFB;
+
+  > div {
+    &:first-child {
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    &:last-child {
+      @apply text-2xl;
+      @apply leading-9;
+      @apply font-medium;
+      @apply text-gray-50;
+    }
+  }
+}

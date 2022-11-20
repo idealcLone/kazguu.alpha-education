@@ -41,6 +41,7 @@
 }
 
 .lgCard {
+  min-height: 576px;
   position: relative;
   flex: 1;
   background-color: #B498F433;
@@ -52,5 +53,6 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    max-height: 60%;
   }
 }

@@ -1,0 +1,125 @@
+.burger {
+  position: relative;
+  z-index: 50;
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__btn {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 14px;
+    z-index: 50;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  &__icon {
+    top: 0;
+    margin-top: 6px;
+
+    &,
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 16px;
+      height: 2px;
+      border-radius: 10px;
+      @apply bg-gray-900;
+      transition: background-color, rotate 250ms ease-in;
+    }
+
+    &::before {
+      top: -6px;
+    }
+
+    &::after {
+      top: 6px;
+    }
+  }
+
+  &__checkbox:checked + &__btn &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__btn &__icon::before {
+    top: 0;
+    rotate: 135deg;
+  }
+
+  &__checkbox:checked + &__btn &__icon::after {
+    top: 0;
+    rotate: -135deg;
+  }
+
+  &__checkbox:checked ~ .bg {
+    scale: 1;
+  }
+
+  &__checkbox:checked ~ .links__container {
+    width: 100vw;
+
+    h2, li, button {
+      opacity: 1;
+    }
+  }
+}
+
+.bg {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 30;
+  scale: 1 0;
+  transform-origin: top;
+  transition: scale 250ms ease-in;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 80px;
+
+  li {
+    @apply text-xl;
+    @apply leading-7;
+    @apply font-medium;
+    @apply text-black;
+    cursor: pointer;
+  }
+
+  &__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 0;
+    z-index: 30;
+    padding-top: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      font-size: 32px;
+      line-height: 1.1;
+      font-weight: 800;
+      @apply text-gray-800;
+      margin-bottom: 28px;
+    }
+
+    h2, li, button {
+      opacity: 0;
+      transition: opacity 200ms ease-in 100ms;
+    }
+  }
+}

@@ -2,6 +2,14 @@
   padding: 64px 100px;
   background-color: var(--c-blue);
   color: #fff;
+
+  @media screen and (max-width: 767px) {
+    padding: 48px 40px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding: 56px 72px;
+  }
 }
 
 .heading {
@@ -16,12 +24,21 @@
   padding-bottom: 16px;
   border-bottom: 1.5px solid #F9FAFB;
 
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+
   > div {
     &:first-child {
       font-size: 48px;
       line-height: 1;
       font-weight: 700;
       margin-bottom: 8px;
+
+      @media screen and (max-width: 767px) {
+        font-size: 36px;
+        line-height: 48px;
+      }
     }
 
     &:last-child {
@@ -29,6 +46,11 @@
       @apply leading-9;
       @apply font-medium;
       @apply text-gray-50;
+
+      @media screen and (max-width: 767px) {
+        font-size: 20px;
+        line-height: 26px;
+      }
     }
   }
 }

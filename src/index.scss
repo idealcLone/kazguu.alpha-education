@@ -6,12 +6,46 @@
   --c-blue: #425FF8;
 }
 
+body {
+  @media screen and (max-width: 639px) {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+body::-webkit-scrollbar {
+  @media screen and (max-width: 639px) {
+    display: none;  /* Safari and Chrome */
+  }
+}
+
 .content-container {
-  margin-left: 100px;
   margin-right: 100px;
+  margin-left: 100px;
+
+  @media screen and (max-width: 767px) {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    margin-right: 48px;
+    margin-left: 48px;
+  }
 
   &__md {
-    margin: 0 80px;
+    margin-right: 80px;
+    margin-left: 80px;
+
+    @media screen and (max-width: 767px) {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+
+    @media screen and (max-width: 1023px) {
+      margin-right: 48px;
+      margin-left: 48px;
+    }
   }
 }
 

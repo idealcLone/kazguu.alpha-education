@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from './FAQ.module.scss';
 import { social } from '../../consts/social';
-import { faqs, IFAQ } from '../../consts/faqs';
+import { faqs } from '../../consts/faqs';
+import { Heading } from '../UI/Heading';
 
 export const FAQ: React.FC = () => {
   const [currentFAQIndex, setCurrentFAQIndex] = useState<number | null>(null);
@@ -11,13 +12,17 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <div className={`content-container__md flex gap-6`}>
+    <div
+      className={`content-container__md flex lg:flex-col lg:items-center gap-6 md:gap-12 lg:gap-8`}
+    >
       <div className={styles.left}>
-        <h2 className={styles.heading}>Ответы на популярные вопросы</h2>
-        <p className={'text-lg leading-7 font-normal text-gray-500'}>
+        <Heading>
+          <div className={'md:w-3/4 md:mx-auto'}>Ответы на популярные вопросы</div>
+        </Heading>
+        <p className={'text-lg leading-7 font-normal text-gray-500 lg:text-center'}>
           Не нашли ответа на свой вопрос? Напишите нам в соцсетх
         </p>
-        <ul className={'flex gap-8'}>
+        <ul className={'flex gap-8 lg:justify-center'}>
           {social.map((item) => (
             <li key={item.name}>
               <img src={item.icon} alt={item.name} />
@@ -32,7 +37,7 @@ export const FAQ: React.FC = () => {
               <li key={index} className={'flex flex-col gap-2 py-6'}>
                 <div
                   className={
-                    'text-xl leading-8 font-semibold text-black flex justify-between cursor-pointer'
+                    'text-xl leading-8 font-semibold text-black flex justify-between gap-7 cursor-pointer'
                   }
                   onClick={() => handleFAQClick(index)}
                 >
@@ -45,7 +50,7 @@ export const FAQ: React.FC = () => {
               <li
                 key={index}
                 className={
-                  'text-xl leading-8 font-semibold text-black py-6 flex justify-between cursor-pointer'
+                  'text-xl leading-8 font-semibold text-black py-6 flex justify-between gap-7 cursor-pointer'
                 }
                 onClick={() => handleFAQClick(index)}
               >

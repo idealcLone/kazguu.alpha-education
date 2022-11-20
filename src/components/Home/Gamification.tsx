@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Gamification.module.scss';
+import { Heading } from '../UI/Heading';
 
 export const Gamification: React.FC = () => {
   return (
     <div className={'content-container'}>
-      <h2 className={styles['heading']}>Игровой подход и удобный доступ к материалу</h2>
-      <div className={'flex gap-12'}>
+      <Heading>Игровой подход и удобный доступ к материалу</Heading>
+      <div className={'flex md:flex-col gap-12 lg:gap-8 md:gap-6'}>
         <div className={styles.lgCard}>
           <h4>Платформа всегда под рукой</h4>
           <p>

@@ -3,6 +3,7 @@ import styles from './Reviews.module.scss';
 import { IReview } from '../../types';
 import { StarRating } from '../UI/StarRating';
 import { reviews } from '../../consts/reviews';
+import { Heading } from '../UI/Heading';
 
 type CardProps = {
   review: IReview;
@@ -28,7 +29,7 @@ export const Reviews: React.FC = () => {
       <div className={'text-blue uppercase text-base leading-6 font-semibold tracking-wide mb-2'}>
         Отзывы
       </div>
-      <h2 className={styles.heading}>Что о нас говорят наши клиенты:</h2>
+      <Heading>Что о нас говорят наши клиенты:</Heading>
       <div className={'flex gap-6'}>
         {reviews.map((review) => (
           <Card key={review.id} review={review} />

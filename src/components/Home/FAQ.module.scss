@@ -3,17 +3,22 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
 
-.heading {
-  font-size: 40px;
-  line-height: 48px;
-  font-weight: 700;
-  @apply text-gray-800;
+  @media screen and (max-width: 1023px) {
+    max-width: 100%;
+  }
+
+  p {
+    margin-top: -8px;
+  }
 }
 
 .right {
   flex: 1;
+
+  @media screen and (max-width: 1023px) {
+    width: 100%;
+  }
 }
 
 .questions {

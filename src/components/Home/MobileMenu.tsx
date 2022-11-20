@@ -10,7 +10,7 @@ type Props = {
 
 export const MobileMenu: React.FC<Props> = ({ open, handleChange }) => {
   return (
-    <div className={`${styles.burger} hidden md:block relative`}>
+    <div className={`${styles.burger}`}>
       <input
         type={'checkbox'}
         id={'burger-menu'}

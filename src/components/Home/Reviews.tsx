@@ -8,6 +8,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import { useWindowSize } from '../../hooks/useWindowSize';
+import { LG } from '../../consts/breakpoints';
 
 SwiperCore.use([Autoplay]);
 
@@ -35,8 +37,8 @@ type SliderProps = {
 
 const Slider: React.FC<SliderProps> = ({ reviews }) => {
   return (
-    <div className={'hidden lg:block w-full'}>
-      <Swiper slidesPerView={1} loop>
+    <div className={'w-full mt-6'}>
+      <Swiper slidesPerView={1} autoplay={{ delay: 5000, disableOnInteraction: false }} loop>
         {reviews.map((review) => (
           <SwiperSlide key={review.id}>
             <Card review={review} />
@@ -48,18 +50,23 @@ const Slider: React.FC<SliderProps> = ({ reviews }) => {
 };
 
 export const Reviews: React.FC = () => {
+  const { width } = useWindowSize();
+
   return (
     <div className={`${styles.reviews} content-container`}>
       <div className={'text-blue uppercase text-base leading-6 font-semibold tracking-wide mb-2'}>
         Отзывы
       </div>
       <Heading>Что о нас говорят наши клиенты:</Heading>
-      <div className={'flex gap-6 block lg:hidden'}>
-        {reviews.map((review) => (
-          <Card key={review.id} review={review} />
-        ))}
-      </div>
-      <Slider reviews={reviews} />
+      {width > LG ? (
+        <div className={'flex gap-6 mt-6'}>
+          {reviews.map((review) => (
+            <Card key={review.id} review={review} />
+          ))}
+        </div>
+      ) : (
+        <Slider reviews={reviews} />
+      )}
     </div>
   );
 };

@@ -1,19 +1,18 @@
 .burger {
-  position: relative;
-  z-index: 50;
-
   &__checkbox {
     display: none;
   }
 
   &__btn {
-    position: relative;
+    position: fixed;
+    top: 39px;
+    right: 20px;
     display: block;
-    width: 18px;
-    height: 14px;
-    z-index: 50;
+    width: 16px;
+    height: 16px;
     cursor: pointer;
     text-align: center;
+    z-index: 50;
   }
 
   &__icon {
@@ -27,7 +26,7 @@
       position: absolute;
       left: 0;
       width: 16px;
-      height: 2px;
+      height: 1.5px;
       border-radius: 10px;
       @apply bg-gray-900;
       transition: background-color, rotate 250ms ease-in;
@@ -62,7 +61,8 @@
 
   &__checkbox:checked ~ .links__container {
     height: 100vh;
-    translate: 0 210px;
+    translate: -50% 210px;
+    z-index: 49;
 
     h2, li, button {
       opacity: 1;
@@ -73,21 +73,18 @@
 .bg {
   background-color: #fff;
   position: fixed;
+  z-index: 49;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 30;
   scale: 1 0;
   transform-origin: top;
   transition: scale 250ms ease-in;
 }
 
 .links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  text-align: center;
   margin-bottom: 80px;
 
   li {
@@ -96,18 +93,22 @@
     @apply font-medium;
     @apply text-black;
     cursor: pointer;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
   }
 
   &__container {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 50%;
     height: 0;
-    width: 100vw;
-    z-index: 30;
     display: flex;
+    z-index: -1;
     flex-direction: column;
     align-items: center;
+    translate: -50% 0;
     transition: translate 200ms ease-in;
 
     h2 {

@@ -3,12 +3,12 @@
   background-color: var(--c-blue);
   color: #fff;
 
-  @media screen and (max-width: 767px) {
-    padding: 48px 40px;
-  }
-
   @media screen and (max-width: 1023px) {
     padding: 56px 72px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 48px 40px;
   }
 }
 

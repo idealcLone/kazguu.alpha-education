@@ -4,7 +4,7 @@ import styles from './Header.module.scss';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="py-16 px-28 shadow-sm shadow sticky bg-gray-900 z-50 text-gray-50 md:px-12">
+    <footer className="py-16 px-28 shadow-sm shadow bg-gray-900 text-gray-50 md:px-12">
       <div className="flex justify-between gap-9 md:flex-col">
         <div className="flex flex-col gap-9 w-1/4 md:w-auto md:flex-row md:justify-between">
           <div>

@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({ feature, index }) => {
 
 export const PlatformFeatures: React.FC = () => {
   return (
-    <div className={'content-container lg:flex lg:flex-col lg:gap-6'} id={'features'}>
+    <div className={'content-container flex flex-col gap-6'} id={'features'}>
       <Heading>На нашей платформе вы найдете</Heading>
       <div
         className={

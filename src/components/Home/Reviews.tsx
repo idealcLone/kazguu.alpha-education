@@ -4,6 +4,12 @@ import { IReview } from '../../types';
 import { StarRating } from '../UI/StarRating';
 import { reviews } from '../../consts/reviews';
 import { Heading } from '../UI/Heading';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
+SwiperCore.use([Autoplay]);
 
 type CardProps = {
   review: IReview;
@@ -23,6 +29,24 @@ const Card: React.FC<CardProps> = ({ review }) => {
   );
 };
 
+type SliderProps = {
+  reviews: IReview[];
+};
+
+const Slider: React.FC<SliderProps> = ({ reviews }) => {
+  return (
+    <div className={'hidden lg:block w-full'}>
+      <Swiper slidesPerView={1} loop>
+        {reviews.map((review) => (
+          <SwiperSlide key={review.id}>
+            <Card review={review} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
 export const Reviews: React.FC = () => {
   return (
     <div className={`${styles.reviews} content-container`}>
@@ -30,11 +54,12 @@ export const Reviews: React.FC = () => {
         Отзывы
       </div>
       <Heading>Что о нас говорят наши клиенты:</Heading>
-      <div className={'flex gap-6'}>
+      <div className={'flex gap-6 block lg:hidden'}>
         {reviews.map((review) => (
           <Card key={review.id} review={review} />
         ))}
       </div>
+      <Slider reviews={reviews} />
     </div>
   );
 };

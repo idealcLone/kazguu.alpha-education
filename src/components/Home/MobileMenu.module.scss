@@ -61,7 +61,8 @@
   }
 
   &__checkbox:checked ~ .links__container {
-    width: 100vw;
+    height: 100vh;
+    translate: 0 210px;
 
     h2, li, button {
       opacity: 1;
@@ -101,13 +102,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 0;
+    height: 0;
+    width: 100vw;
     z-index: 30;
-    padding-top: 210px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: translate 200ms ease-in;
 
     h2 {
       font-size: 32px;
@@ -119,7 +120,7 @@
 
     h2, li, button {
       opacity: 0;
-      transition: opacity 200ms ease-in 100ms;
+      transition: opacity 200ms ease-in;
     }
   }
 }

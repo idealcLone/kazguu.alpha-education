@@ -26,8 +26,6 @@ export const useLocalization = (): Return => {
     setTranslations(getTranslations(language));
   }, [language]);
 
-  console.log(translations);
-
   const t = useCallback((key: string): string => translations[key] || key, [translations]);
 
   return { language, setLanguage, t };

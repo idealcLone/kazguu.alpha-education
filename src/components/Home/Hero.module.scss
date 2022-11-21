@@ -4,13 +4,13 @@
   font-weight: 800;
   @apply text-gray-800;
 
-  @media screen and (max-width: 767px) {
-    font-size: 32px;
+  @media screen and (max-width: 1023px) {
+    font-size: 36px;
     line-height: 1.1;
   }
 
-  @media screen and (max-width: 1023px) {
-    font-size: 36px;
+  @media screen and (max-width: 767px) {
+    font-size: 32px;
     line-height: 1.1;
   }
 }

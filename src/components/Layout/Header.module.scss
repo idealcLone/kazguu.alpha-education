@@ -4,3 +4,15 @@
     @apply font-medium;
   }
 }
+
+.loginBtn {
+  width: 104px;
+
+  @media screen and (max-width: 767px) {
+    margin-right: 20px;
+  }
+
+  @media screen and (max-width: 639px) {
+    margin-right: 32px;
+  }
+}

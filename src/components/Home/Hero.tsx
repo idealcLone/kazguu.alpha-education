@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
     >
       <div className={styles.left}>
         <h1 className={styles.heading}>
-          {headingArray.slice(0, sliceIndex).join(' ')}{' '}
+          {headingArray.slice(0, sliceIndex - 1).join(' ')}{' '}
           <span className={'text-blue'}>{' ' + headingArray[sliceIndex - 1]}</span>{' '}
           {headingArray.at(-1)}
         </h1>

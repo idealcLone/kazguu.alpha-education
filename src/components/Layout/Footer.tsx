@@ -1,14 +1,26 @@
 import React from 'react';
 import { links } from '../../consts/links';
 import styles from './Header.module.scss';
+import { useLocalizationContext } from '../../contexts/localizationContext';
 
 export const Footer: React.FC = () => {
+  const { t } = useLocalizationContext();
+
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="py-16 px-28 shadow-sm shadow bg-gray-900 text-gray-50 md:px-12">
       <div className="flex justify-between gap-9 md:flex-col">
         <div className="flex flex-col gap-9 w-1/4 md:w-auto md:flex-row md:justify-between">
           <div>
-            <img src="/icons/white_alpha_edu.svg" alt="Alpha Education icon" />
+            <img
+              src="/icons/white_alpha_edu.svg"
+              alt="Alpha Education icon"
+              className={'cursor-pointer'}
+              onClick={handleLogoClick}
+            />
           </div>
           <div className="flex flex-row text-gray-50 gap-6">
             <img src="/icons/white_instagram.svg" alt="Facebook icon" />

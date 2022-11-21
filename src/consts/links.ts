@@ -1,20 +1,33 @@
 import { ILink } from '../types';
 
+const HEADER_HEIGHT = 90;
+const OFFSET = 30;
+
+const handleScrollToElement = (link: string) => {
+  const element = document.getElementById(link);
+  if (element) {
+    window.scrollTo({
+      top: element.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT - OFFSET,
+      behavior: 'smooth',
+    });
+  }
+};
+
 export const links: ILink[] = [
   {
     name: 'Services',
-    onClick: () => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }),
+    onClick: () => handleScrollToElement('services'),
   },
   {
     name: 'Features',
-    onClick: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }),
+    onClick: () => handleScrollToElement('features'),
   },
   {
     name: 'Courses',
-    onClick: () => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }),
+    onClick: () => handleScrollToElement('courses'),
   },
   {
     name: 'Contacts',
-    onClick: () => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' }),
+    onClick: () => handleScrollToElement('contacts'),
   },
 ];

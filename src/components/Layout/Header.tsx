@@ -6,14 +6,14 @@ import styles from './Header.module.scss';
 import { MobileMenu } from '../Home/MobileMenu';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { MD } from '../../consts/breakpoints';
+import { useLocalizationContext } from '../../contexts/localizationContext';
+import { LanguageSelect } from '../Home/LanguageSelect';
 
 export const Header: React.FC = () => {
   const { width } = useWindowSize();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const { t } = useLocalizationContext();
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target);
-  };
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   const handleLogoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -47,18 +47,14 @@ export const Header: React.FC = () => {
           <div className={'relative flex gap-6 items-center'}>
             {width > MD ? (
               <>
-                <Select options={['KZ', 'RU']} handleChange={handleLanguageChange} />
+                <LanguageSelect />
                 <Button>
                   <img src="/icons/login.svg" alt="Login Icon" />
-                  <span>Войти</span>
+                  <span>{t('login')}</span>
                 </Button>
               </>
             ) : mobileMenuOpen ? (
-              <Select
-                options={['KZ', 'RU']}
-                handleChange={handleLanguageChange}
-                className={'sm:mr-8 md:mr-5'}
-              />
+              <LanguageSelect className={'sm:mr-8 md:mr-5'} />
             ) : (
               <Button className={styles.loginBtn}>
                 <img src="/icons/login.svg" alt="Login Icon" />

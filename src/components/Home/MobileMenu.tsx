@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './MobileMenu.module.scss';
 import { links } from '../../consts/links';
 import { Button } from '../UI/Button';
+import { ILink } from '../../types';
 
 type Props = {
   open: boolean;
@@ -9,6 +10,13 @@ type Props = {
 };
 
 export const MobileMenu: React.FC<Props> = ({ open, handleChange }) => {
+  const handleLinkClick = (link: ILink) => {
+    handleChange();
+    setTimeout(() => {
+      link.onClick();
+    }, 100);
+  };
+
   return (
     <div className={`${styles.burger}`}>
       <input
@@ -26,7 +34,9 @@ export const MobileMenu: React.FC<Props> = ({ open, handleChange }) => {
         <h2>Menu</h2>
         <ul className={styles['links']}>
           {links.map((link) => (
-            <li key={link.name}>{link.name}</li>
+            <li key={link.name} onClick={() => handleLinkClick(link)}>
+              {link.name}
+            </li>
           ))}
         </ul>
         <Button>

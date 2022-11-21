@@ -1,8 +1,56 @@
-import React from 'react';
+import React, { RefObject, useEffect, useRef } from 'react';
 import styles from './OurNumbers.module.scss';
 import { Heading } from '../UI/Heading';
 
+const COURSE_NUMBER = 220;
+const CURATOR_NUMBER = 90;
+const GRADUATE_NUMBER = 1500;
+const VIDEO_LESSON_NUMBER = 10000;
+const ANIMATION_DURATION = 1; // seconds
+const FPS = 60;
+
 export const OurNumbers: React.FC = () => {
+  const courseNumberRef = useRef<HTMLDivElement>(null);
+  const curatorNumberRef = useRef<HTMLDivElement>(null);
+  const graduateNumberRef = useRef<HTMLDivElement>(null);
+  const videoLessonNumberRef = useRef<HTMLDivElement>(null);
+
+  const countNumber = (ref: RefObject<HTMLDivElement>, limit: number) => {
+    let counter = 0;
+    const interval = limit / ANIMATION_DURATION / FPS;
+
+    const incrementNumber = () => {
+      if (ref.current && counter < limit) {
+        const currentNumber = counter + interval;
+        counter += interval;
+        ref.current.innerText = Math.min(limit, Math.ceil(currentNumber)).toString();
+        requestAnimationFrame(incrementNumber);
+      }
+    };
+
+    requestAnimationFrame(incrementNumber);
+  };
+
+  useEffect(() => {
+    if (courseNumberRef.current) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            countNumber(courseNumberRef, COURSE_NUMBER);
+            countNumber(curatorNumberRef, CURATOR_NUMBER);
+            countNumber(graduateNumberRef, GRADUATE_NUMBER);
+            countNumber(videoLessonNumberRef, VIDEO_LESSON_NUMBER);
+          }
+        },
+        { threshold: 1 },
+      );
+
+      observer.observe(courseNumberRef.current);
+
+      return () => observer.disconnect();
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <Heading>
@@ -14,19 +62,19 @@ export const OurNumbers: React.FC = () => {
         }
       >
         <li className={styles.listItem}>
-          <div>220</div>
+          <div ref={courseNumberRef}>0</div>
           <div>Курсов</div>
         </li>
         <li className={styles.listItem}>
-          <div>90</div>
+          <div ref={curatorNumberRef}>0</div>
           <div>Кураторов</div>
         </li>
         <li className={styles.listItem}>
-          <div>1 500</div>
+          <div ref={graduateNumberRef}>0</div>
           <div>Выпускников</div>
         </li>
         <li className={styles.listItem}>
-          <div>10 000</div>
+          <div ref={videoLessonNumberRef}>0</div>
           <div>Видеоуроков</div>
         </li>
       </ul>

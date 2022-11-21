@@ -1,6 +1,7 @@
 import React, { RefObject, useEffect, useRef } from 'react';
 import styles from './OurNumbers.module.scss';
 import { Heading } from '../UI/Heading';
+import { useLocalizationContext } from '../../contexts/localizationContext';
 
 const COURSE_NUMBER = 220;
 const CURATOR_NUMBER = 90;
@@ -10,6 +11,8 @@ const ANIMATION_DURATION = 1; // seconds
 const FPS = 60;
 
 export const OurNumbers: React.FC = () => {
+  const { t } = useLocalizationContext();
+
   const courseNumberRef = useRef<HTMLDivElement>(null);
   const curatorNumberRef = useRef<HTMLDivElement>(null);
   const graduateNumberRef = useRef<HTMLDivElement>(null);
@@ -54,7 +57,7 @@ export const OurNumbers: React.FC = () => {
   return (
     <div className={styles.container}>
       <Heading>
-        <span className={'text-white'}>О нас в цифрах</span>
+        <span className={'text-white'}>{t('about_us_in_numbers')}</span>
       </Heading>
       <ul
         className={
@@ -63,19 +66,19 @@ export const OurNumbers: React.FC = () => {
       >
         <li className={styles.listItem}>
           <div ref={courseNumberRef}>0</div>
-          <div>Курсов</div>
+          <div>{t('of_courses')}</div>
         </li>
         <li className={styles.listItem}>
           <div ref={curatorNumberRef}>0</div>
-          <div>Кураторов</div>
+          <div>{t('of_curators')}</div>
         </li>
         <li className={styles.listItem}>
           <div ref={graduateNumberRef}>0</div>
-          <div>Выпускников</div>
+          <div>{t('of_alumni')}</div>
         </li>
         <li className={styles.listItem}>
           <div ref={videoLessonNumberRef}>0</div>
-          <div>Видеоуроков</div>
+          <div>{t('of_video_tutorials')}</div>
         </li>
       </ul>
     </div>

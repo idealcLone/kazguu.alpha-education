@@ -6,15 +6,15 @@ interface ISocial {
 
 export const social: ISocial[] = [
   {
-    name: 'Instagram',
+    name: 'instagram',
     icon: '/icons/instagram.svg',
   },
   {
-    name: 'Facebook',
+    name: 'facebook',
     icon: '/icons/facebook.svg',
   },
   {
-    name: 'Telegram',
+    name: 'telegram',
     icon: '/icons/telegram.svg',
   },
 ];

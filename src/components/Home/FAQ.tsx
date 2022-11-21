@@ -3,8 +3,11 @@ import styles from './FAQ.module.scss';
 import { social } from '../../consts/social';
 import { faqs } from '../../consts/faqs';
 import { Heading } from '../UI/Heading';
+import { useLocalizationContext } from '../../contexts/localizationContext';
 
 export const FAQ: React.FC = () => {
+  const { t } = useLocalizationContext();
+
   const [currentFAQIndex, setCurrentFAQIndex] = useState<number | null>(null);
 
   const handleFAQClick = (index: number) => {
@@ -17,10 +20,10 @@ export const FAQ: React.FC = () => {
     >
       <div className={styles.left}>
         <Heading>
-          <div className={'md:w-3/4 md:mx-auto'}>Ответы на популярные вопросы</div>
+          <div className={'md:w-3/4 md:mx-auto'}>{t('faq_answers')}</div>
         </Heading>
         <p className={'text-lg leading-7 font-normal text-gray-500 lg:text-center'}>
-          Не нашли ответа на свой вопрос? Напишите нам в соцсетх
+          {t('contact_us_on_social_media')}
         </p>
         <ul className={'flex gap-8 lg:justify-center'}>
           {social.map((item) => (
@@ -41,10 +44,10 @@ export const FAQ: React.FC = () => {
                   }
                   onClick={() => handleFAQClick(index)}
                 >
-                  <div>{faq.question}</div>
+                  <div>{t(faq.question)}</div>
                   <img src="/icons/arrow-up.svg" alt="Arrow up icon" />
                 </div>
-                <p className={'text-lg leading-7 font-normal text-gray-500'}>{faq.answer}</p>
+                <p className={'text-lg leading-7 font-normal text-gray-500'}>{t(faq.answer)}</p>
               </li>
             ) : (
               <li
@@ -54,7 +57,7 @@ export const FAQ: React.FC = () => {
                 }
                 onClick={() => handleFAQClick(index)}
               >
-                <div>{faq.question}</div>
+                <div>{t(faq.question)}</div>
                 <img src="/icons/arrow-down.svg" alt="Arrow down icon" />
               </li>
             ),

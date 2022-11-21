@@ -3,6 +3,7 @@ import styles from './MobileMenu.module.scss';
 import { links } from '../../consts/links';
 import { Button } from '../UI/Button';
 import { ILink } from '../../types';
+import { useLocalizationContext } from '../../contexts/localizationContext';
 
 type Props = {
   open: boolean;
@@ -10,6 +11,8 @@ type Props = {
 };
 
 export const MobileMenu: React.FC<Props> = ({ open, handleChange }) => {
+  const { t } = useLocalizationContext();
+
   const handleLinkClick = (link: ILink) => {
     handleChange();
     setTimeout(() => {
@@ -31,17 +34,17 @@ export const MobileMenu: React.FC<Props> = ({ open, handleChange }) => {
       </label>
       <div className={styles.bg} />
       <div className={styles['links__container']}>
-        <h2>Menu</h2>
+        <h2>{t('menu')}</h2>
         <ul className={styles['links']}>
           {links.map((link) => (
             <li key={link.name} onClick={() => handleLinkClick(link)}>
-              {link.name}
+              {t(link.name)}
             </li>
           ))}
         </ul>
         <Button>
           <img src="/icons/login.svg" alt="Login Icon" />
-          <span className={'text-sm leading-5 font-medium text-white'}>Войти</span>
+          <span className={'text-sm leading-5 font-medium text-white'}>{t('login')}</span>
         </Button>
       </div>
     </div>

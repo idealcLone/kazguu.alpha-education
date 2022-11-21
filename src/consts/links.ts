@@ -15,19 +15,19 @@ const handleScrollToElement = (link: string) => {
 
 export const links: ILink[] = [
   {
-    name: 'Services',
+    name: 'services',
     onClick: () => handleScrollToElement('services'),
   },
   {
-    name: 'Features',
+    name: 'features',
     onClick: () => handleScrollToElement('features'),
   },
   {
-    name: 'Courses',
+    name: 'courses',
     onClick: () => handleScrollToElement('courses'),
   },
   {
-    name: 'Contacts',
+    name: 'contacts',
     onClick: () => handleScrollToElement('contacts'),
   },
 ];

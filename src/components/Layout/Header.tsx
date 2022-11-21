@@ -40,7 +40,7 @@ export const Header: React.FC = () => {
                 onClick={link.onClick}
                 className={`no-underline text-base leading-6 font-normal text-gray-800 cursor-pointer ${styles.link}`}
               >
-                {link.name}
+                {t(link.name)}
               </li>
             ))}
           </ul>
@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
             ) : (
               <Button className={styles.loginBtn}>
                 <img src="/icons/login.svg" alt="Login Icon" />
-                <span>Войти</span>
+                <span>{t('login')}</span>
               </Button>
             )}
           </div>

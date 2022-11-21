@@ -7,90 +7,80 @@ export interface IFeature {
 
 export const trackFeatures: IFeature[] = [
   {
-    name: 'Статистика обучения',
+    name: 'learning_statistics',
     icon: '/icons/statistics.svg',
   },
   {
-    name: 'Обратная связь',
+    name: 'feedback',
     icon: '/icons/feedback.svg',
   },
   {
-    name: 'Большой выбор курсов',
+    name: 'large_selection_of_courses',
     icon: '/icons/course-options.svg',
   },
   {
-    name: 'Онлайн обучение',
+    name: 'online_learning',
     icon: '/icons/online-education.svg',
   },
 ];
 
 export const educationFeatures: IFeature[] = [
   {
-    name: 'Лучшие методологии',
-    description:
-      'Мы разработали платформу, которая позволяет эффективно организовать учебный материал и мотивировать ваших учеников при помощи специально разработанной системе вознаграждений',
+    name: 'best_methodologies',
+    description: 'best_methodologies_description',
     icon: '/icons/methodologies.svg',
   },
   {
-    name: 'Нацеленность на результат',
-    description:
-      'Наша платформа предоставляет быстрый доступ ко всему материалу для эффективного обучения, а специально созданная игровая среда поможет вам не терять мотивацию и успешно усваивать новые знания',
+    name: 'focus_on_results',
+    description: 'focus_on_results_description',
     icon: '/icons/result.svg',
   },
   {
-    name: 'Открытый портал',
-    description:
-      'В системе предусмотрены внутренняя валюта и очки опыта, которые присуждаются после выполнения определенных задач и достижений.',
+    name: 'open_portal',
+    description: 'open_portal_description',
     icon: '/icons/open-portal.svg',
   },
   {
-    name: 'Система вознаграждений',
-    description:
-      'В системе предусмотрены внутренняя валюта и очки опыта, которые присуждаются после выполнения определенных задач и достижений.',
+    name: 'reward_system',
+    description: 'reward_system_description',
     icon: '/icons/rewarding-system.svg',
   },
 ];
 
 export const platformFeatures: IFeature[] = [
   {
-    name: 'Удобный просмотр ресурсов',
-    description:
-      'Система позволяет просмотр видео-лекций, PDF-презентаций, ссылки и прослушивание аудио файлов.',
+    name: 'finding_1',
+    description: 'finding_1_description',
     icon: '/icons/play.svg',
     hoverColor: '#425FF866',
   },
   {
-    name: 'Геймификация',
-    description:
-      'В системе предусмотрены внутренняя валюта и очки опыта, которые присуждаются после выполнения определенных задач и достижений.',
+    name: 'finding_2',
+    description: 'finding_2_description',
     icon: '/icons/game.svg',
     hoverColor: '#52D7A6B2',
   },
   {
-    name: 'Большое разнообразие вопросов',
-    description:
-      'Система поддерживает создание более 10 разных видов вопросов для более лучшего освоения и закрепления материала',
+    name: 'finding_3',
+    description: 'finding_3_description',
     icon: '/icons/light.svg',
     hoverColor: '#B498F499',
   },
   {
-    name: 'Расписание лекций и вебинаров',
-    description:
-      'Обучающиеся также могут просматривать расписание на записанные курсы и отслеживать все дедлайны в удобном дэшборде.',
+    name: 'finding_4',
+    description: 'finding_4_description',
     icon: '/icons/folder.svg',
     hoverColor: '#B498F499',
   },
   {
-    name: 'Статистика и анализ результатов',
-    description:
-      'Статистика по всем текущим курсам доступна в дэшборде обучаемого. Можно просматривать все оценки за задания, дедлайны и позицию и т.д.',
+    name: 'finding_5',
+    description: 'finding_5_description',
     icon: '/icons/statistics-orange.svg',
     hoverColor: '#FBA56499',
   },
   {
-    name: 'Интуитивно удобный интерфейс',
-    description:
-      'Все формы, поля, таблицы, секции и элементы проработаны по всем стандартам UI/UX дизайна, что позволяет быстро освоиться',
+    name: 'finding_6',
+    description: 'finding_6_description',
     icon: '/icons/like.svg',
     hoverColor: '#425FF866',
   },

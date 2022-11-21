@@ -1,8 +1,14 @@
 import React from 'react';
 import styles from './Hero.module.scss';
 import { Button } from '../UI/Button';
+import { useLocalizationContext } from '../../contexts/localizationContext';
 
 export const Hero: React.FC = () => {
+  const { t } = useLocalizationContext();
+  const heading = t('next_generation_educational_platform');
+  const headingArray = heading.split(' ');
+  const sliceIndex = headingArray.length - 1;
+
   return (
     <div
       className={
@@ -11,14 +17,14 @@ export const Hero: React.FC = () => {
     >
       <div className={styles.left}>
         <h1 className={styles.heading}>
-          Образовательная платформа <span className={'text-blue'}>нового</span> поколения
+          {headingArray.slice(0, sliceIndex).join(' ')}{' '}
+          <span className={'text-blue'}>{' ' + headingArray[sliceIndex - 1]}</span>{' '}
+          {headingArray.at(-1)}
         </h1>
         <p className={'text-lg leading-6 font-normal text-gray-500 mt-6 mb-16 md:mb-10'}>
-          Мы соединили игровой подход, удобный доступ к материалу и огромное разнообразие вопросов в
-          уникальной системе, чтобы сделать ваш образовательный процесс более эффективным и
-          увлекательным
+          {t('next_generation_educational_platform_description')}
         </p>
-        <Button>Получить демо</Button>
+        <Button>{t('get_demo')}</Button>
       </div>
       <img src="/img/hero-illustration.png" alt="Hero Illustration" className={styles.right} />
     </div>

@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
           <div className={'relative flex gap-6 items-center'}>
             {width > MD ? (
               <>
-                <LanguageSelect />
+                <LanguageSelect className="bg-white"/>
                 <Button>
                   <img src="/icons/login.svg" alt="Login Icon" />
                   <span>{t('login')}</span>
